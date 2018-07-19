@@ -12,8 +12,13 @@ rl.question("What is the name of a real person? ", function(answer) {
 
 	realPerson.name = answer;
 
+	// Use a writable Stream to create a new markdown file
+	var stream = fs.createWriteStream(realPerson.name + ".md");
+
+	// start writing to the markdown file since the stream is open
+	stream.write(`${realPerson.name}\n=======================\n\n`);
+
 	// Create a new Markdown file
-	fs.writeFileSync(realPerson.name + ".md", `${realPerson.name}\n=======================\n\n`);
 
 	rl.setPrompt(`What would ${realPerson.name} say? `);
 
@@ -21,18 +26,15 @@ rl.question("What is the name of a real person? ", function(answer) {
 
 	rl.on('line', function(saying) {
 
-		realPerson.sayings.push(saying.trim());
-
-		// Append Sayings to the markdown file we created above
-		fs.appendFile(realPerson.name + ".md", `* ${saying.trim()} \n`, function(err) {
-			if (err) {
-				console.log(err);
-			}
-		});
 
 		if (saying.toLowerCase().trim() === 'exit') {
+			// Close the writable stream
+			stream.close();
 			rl.close();
 		} else {
+			realPerson.sayings.push(saying.trim());
+			// Write Sayings to the markdown file we created above
+			stream.write( `* ${saying.trim()} \n`);
 			rl.setPrompt(`What else would ${realPerson.name} say? ('exit' to leave) `);
 		    rl.prompt();
 		}
