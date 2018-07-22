@@ -37,3 +37,6 @@ This repository contains snippets of Node.js code demonstrating essential Node.j
 
 ## Section 8: Web Servers
 * 01: The package.json file
+* 02: Intro to Express module
+* 03: Express routing
+* 04: Express post bodies and request parameters
