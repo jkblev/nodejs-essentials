@@ -1,0 +1,16 @@
+{
+  "name": "knitting-dictionary",
+  "version": "1.0.0",
+  "description": "a collection of knitting terms and definitions",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jkblev",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/cors": "^2.2.2",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3"
+  }
+}
