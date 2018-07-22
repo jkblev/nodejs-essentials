@@ -32,3 +32,8 @@ This repository contains snippets of Node.js code demonstrating essential Node.j
 * 03: Creating a file server to respond to requests (e.g. requests for css, html, jpgs, etc)
 * 04: Building JSON APIs in Node.js
 * 05: collecting POST data via the HTTP module
+
+## Section 7: learning about npm (no code)
+
+## Section 8: Web Servers
+* 01: The package.json file
